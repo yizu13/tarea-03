@@ -56,12 +56,15 @@ functions.map((element)=>{
                         break;
 
                     case "√": 
-                        if(number1 === 2 || number1 === 3){
+                        if((number1 === 2 || number1 === 3) && (number2 >= 0)){
                         result.textContent = parseInt((number2 ** (1/number1)).toFixed(5));
                     }
-                        else{
+                        else if(number1 !== 2 && number1 !== 3){
                             console.log("error")
                             result.textContent = "Solo raíces de 2 y 3"
+                        } else{
+                            console.log("error")
+                            result.textContent = "error"
                         }
                         break;
 
@@ -90,6 +93,10 @@ functions.map((element)=>{
               }
                 
             
+            });
+
+            document.addEventListener("keydown", (e)=>{
+                if(e.key === "Enter") document.getElementById("result").click()
             });
         } else if(element.name === "clean"){
             newFunction.addEventListener("click", ()=>{
